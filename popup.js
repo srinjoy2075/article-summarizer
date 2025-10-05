@@ -4,7 +4,7 @@ document.getElementById("summarize").addEventListener("click", async () => {
 
   const summaryType = document.getElementById("summary-type").value;
 
-  // Get API key from storage
+ 
   chrome.storage.sync.get(["geminiApiKey"], async (result) => {
     if (!result.geminiApiKey) {
       resultDiv.innerHTML =
@@ -63,7 +63,7 @@ document.getElementById("copy-btn").addEventListener("click", () => {
 });
 
 async function getGeminiSummary(text, summaryType, apiKey) {
-  // Truncate very long texts to avoid API limits (typically around 30K tokens)
+  
   const maxLength = 20000;
   const truncatedText =
     text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
@@ -85,7 +85,7 @@ async function getGeminiSummary(text, summaryType, apiKey) {
 
   try {
     const res = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`,
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`,
       {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -117,3 +117,4 @@ async function getGeminiSummary(text, summaryType, apiKey) {
     throw new Error("Failed to generate summary. Please try again later.");
   }
 }
+

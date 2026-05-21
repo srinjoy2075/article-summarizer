@@ -127,12 +127,6 @@ The extension automatically redirects users to the settings page if no API key i
 
 ---
 
-## License
-
-This project is licensed under the MIT License.
-
----
-
 ## Author
 
 Developed as a modern AI-powered browser productivity solution using JavaScript, Chrome APIs, and Gemini AI.
